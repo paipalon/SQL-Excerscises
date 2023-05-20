@@ -6,7 +6,7 @@ SELECT nimi FROM Tuotteet
 WHERE hinta = (SELECT MIN(hinta) FROM Tuotteet);
 
 1.2 
-Haetaan kaikkien karkausvuonna julkaistujen kaikkien elokuvien nimet
+Haetaan kaikkien karkausvuonna julkaistujen elokuvien nimet
 
 SELECT nimi FROM Elokuvat
 WHERE ((vuosi % 100)=0 AND (vuosi % 4)=0 AND (vuosi % 400)=0)
