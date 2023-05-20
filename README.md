@@ -1,1 +1,1 @@
-# SQL-Excerscises
+Esimerkkejä itse ratkaisemistani tietokantakurssin SQL-tehtävistä
