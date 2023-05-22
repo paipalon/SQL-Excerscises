@@ -35,7 +35,7 @@ Lasketaan, montako eri tehtävää kukin opiskelija on ratkaissut oikein
 
 SELECT O.nimi, COUNT(DISTINCT L.tehtava_id) 
 FROM Opiskelijat O LEFT JOIN Lahetykset L
-ON L.opiskelija_id = O.id AND L.tila = 1\f3\fs24\lang1035\kerning1\dbch\af8\langfe2052\ql\ltrpar{\loch
+ON L.opiskelija_id = O.id AND L.tila = 1
 GROUP BY O.id;
 
 3.6
@@ -53,3 +53,11 @@ SELECT V.nimi, COUNT(M.vaunu_id)
 FROM Vaunut V LEFT JOIN Matkustajat M
 ON M.vaunu_id = V.id}
 GROUP BY V.id;
+
+3.8
+Haetaan jokaisesta tuotteesta tieto, monessako paketissa se esiintyy
+
+SELECT T.nimi, COUNT(DISTINCT S.paketti_id) 
+FROM Tuotteet T LEFT JOIN Sisallot S 
+ON tuote_id =id
+GROUP BY T.id;
