@@ -49,19 +49,10 @@ SELECT nimi,
 CASE WHEN ROW_NUMBER() OVER(ORDER BY nimi) % 2 = 0
 
 4.8 
-Muodosta tuloslista, jossa on sijaluku, pelaajan nimi ja paras tulos. Jos kahdella pelaajalla on sama tulos, nimet järjestetään aakkosjärjestykseen. Jokaisella pelaajalla on eri nimi ja ai                          nakin yksi tulos.}
-\par \pard\plain \s0\rtlch\af7\afs24\alang1081 \ltrch\lang1035\langfe2052\hich\af3\loch\ql\widctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1035\kerning1\dbch\af6\langfe2052\ql\loch
+Muodosta tuloslista, jossa on sijaluku, pelaajan nimi ja paras tulos. Jos kahdella pelaajalla on sama tulos, nimet järjestetään aakkosjärjestykseen. Jokaisella pelaajalla on eri nimi ja
+ainakin yksi tulos.
 
-\par \pard\plain \s0\rtlch\af7\afs24\alang1081 \ltrch\lang1035\langfe2052\hich\af3\loch\ql\widctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1035\kerning1\dbch\af6\langfe2052\ql{\loch
-SELECT ROW_NUMBER() OVER(ORDER BY MAX(T.tulos) DESC, P.nimi), P.nimi, MAX(T.tulos)    }
-\par \pard\plain \s0\rtlch\af7\afs24\alang1081 \ltrch\lang1035\langfe2052\hich\af3\loch\ql\widctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1035\kerning1\dbch\af6\langfe2052\ql{\loch
-FROM Pelaajat P, Tulokset T}
-\par \pard\plain \s0\rtlch\af7\afs24\alang1081 \ltrch\lang1035\langfe2052\hich\af3\loch\ql\widctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1035\kerning1\dbch\af6\langfe2052\ql{\loch
-WHERE T.pelaaja_id = P.id}
-\par \pard\plain \s0\rtlch\af7\afs24\alang1081 \ltrch\lang1035\langfe2052\hich\af3\loch\ql\widctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1035\kerning1\dbch\af6\langfe2052\ql{\loch
-GROUP BY P.id ORDER BY MAX(T.tulos) DESC, nimi;}
-\par \pard\plain \s0\rtlch\af7\afs24\alang1081 \ltrch\lang1035\langfe2052\hich\af3\loch\ql\widctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1035\kerning1\dbch\af6\langfe2052\ql\loch
-
-\par \pard\plain \s0\rtlch\af7\afs24\alang1081 \ltrch\lang1035\langfe2052\hich\af3\loch\ql\widctlpar\hyphpar0\ltrpar\cf0\f3\fs24\lang1035\kerning1\dbch\af6\langfe2052\ql\loch
-
-\par }
+SELECT ROW_NUMBER() OVER(ORDER BY MAX(T.tulos) DESC, P.nimi), P.nimi, MAX(T.tulos)    
+FROM Pelaajat P, Tulokset T
+WHERE T.pelaaja_id = P.id
+GROUP BY P.id ORDER BY MAX(T.tulos) DESC, nimi;
